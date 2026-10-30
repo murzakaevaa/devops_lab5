@@ -1,0 +1,15 @@
+---
+- name: Example loop tasks
+  hosts: webservers
+  remote_user: runner
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Debug loop
+      ansible.builtin.debug:
+        msg: "{{ item }}"
+      loop:
+        - Apples
+        - Oranjes
+        - Raindrops

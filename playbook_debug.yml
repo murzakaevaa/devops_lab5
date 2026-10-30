@@ -1,0 +1,17 @@
+---
+- name: Example debug tasks
+  hosts: webservers
+  remote_user: runner
+  become: true
+  become_method: sudo
+
+  vars_files:
+    - secret.yml
+  tasks:
+    - name: Print message
+      ansible.builtin.debug:
+        msg: "HELLO WORLD!"
+
+    - name: Print secret
+      ansible.builtin.debug:
+        var: my_local_secret

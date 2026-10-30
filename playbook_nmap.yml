@@ -1,0 +1,23 @@
+---
+- name: Scale targets with loop and repost
+  hosts: webservers
+  remote_user: runner
+  become: true
+  become_method: sudo
+
+  tasks:
+    - name: Install NMAP
+      ansible.builtin.apt:
+        name: nmap
+        state: present
+        update_cache: true
+
+    - name: Scan
+      ansible.builtin.shell: "nmap {{ item }} -p 80 oG -"
+      loop: "{{ lookup('file', './targets.txt').splitlines() }}"
+      register: scan_results
+
+    - name: Scan results
+      ansible.builtin.debug:
+        msg: "{{ item.stdout_lines }}"
+      loop: "{{ scan_results.results }}"
