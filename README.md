@@ -1,9 +1,5 @@
 # Lab 5. Ansible Advanced (П05)
 
-## Схема взаимодействия
-- **VM-1 (10.0.2.15)** — Control node (Ansible)
-- **VM-2 (10.0.2.16)** — Managed node
-
 ## Что было сделано
 1. Написан `playbook_nmap.yml` — установка nmap на VM-2 и сканирование списка целей (`targets.txt`) с использованием циклов `loop`, `register` и `debug`.
 2. Продемонстрирован **Ansible Vault**: файл `secret.yml` зашифрован, запуск плейбука выполнен с флагом `--ask-vault-pass`.
@@ -20,7 +16,7 @@
 - `playbook_loop.yml` — плейбук с циклом (Loop).
 - `playbook_handlers.yml` — плейбук с обработчиками (Handlers).
 
-## Скриншоты (папка `screenshots/`)
+## Скриншоты (папка `скрины`)
 
 | Файл | Что изображено на скриншоте |
 | :--- | :--- |
